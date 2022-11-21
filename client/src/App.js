@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+const baseURL = 'http://localhost:3100';
 
 function App() {
   const [site, setSite] = useState(0);
 
-  const scanSite = (sitename) => {};
+  const scanSite = (sitename) => {
+    axios.get(`${baseURL}`).then((response) => {
+      console.log('==============response', response);
+    });
+  };
 
   const changeSite = (event) => {
     setSite(event.target.value);
